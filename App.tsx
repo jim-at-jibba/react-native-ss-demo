@@ -1,44 +1,31 @@
 import {StatusBar} from "expo-status-bar"
 import React from "react"
-import {StyleSheet, Text, View} from "react-native"
-import {ThemeProvider} from "styled-components/native"
 
+import {ThemeProvider} from "./styled-components"
+import {theme} from "./theme"
 import Box from "./Box"
+import Text from "./Text"
 
-const theme = {
-  colors: {
-    black: "#000e1a",
-    white: "#fff",
-    blue: "#007ce0",
-    navy: "#004175",
-  },
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-}
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <Box
-        m={2}
-        bg="blue"
-        ml={4}
         alignItems="center"
         justifyContent="center"
-        flex={1}>
+        flex={1}
+        m="medium"
+        bg="lightGrey">
         <StatusBar style="auto" />
-        <Box m={2} bg="blue" ml={4}>
-          <Text>Tomato</Text>
+        <Box>
+          <Text fontSize={8}>A potato</Text>
+          <Text variant="large">A potato</Text>
+          <Text variant="small">A carrot</Text>
+        </Box>
+        <Box width={0.5} bg="blue" p="small">
+          <Text>half</Text>
         </Box>
       </Box>
     </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-})
